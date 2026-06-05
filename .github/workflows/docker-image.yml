@@ -7,20 +7,22 @@ on:
     branches: [ "main" ]
 
 jobs:
+
+  # Build the image
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: docker build -t myapp:test .
-
+  # Test the image
   test:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - run: echo "Run tests"
-
-  deploy:
+  # Push image
+  push:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploy image"
+      - run: echo "Push image to docker registry"
