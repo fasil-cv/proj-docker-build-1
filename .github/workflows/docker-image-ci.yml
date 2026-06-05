@@ -7,14 +7,37 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build-test:
-    runs-on: ubuntu-latest
 
+  # Build the image
+  build:
+    runs-on: ubuntu-latest  
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build image
-        run: docker build -t myapp:ci .
+      - name: Set VERSION
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+       
+      #- name: Debug
+      #  run: echo "VERSION=$GITHUB_REF_NAME"
+          
+      - name: build and tag
+        run: |
+          docker build -t fasilcv/myapp:"${VERSION}" .
+          docker tag fasilcv/myapp:"${VERSION}" myapp:latest
+  # Test the image
+  test1:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Run tests"
+  test2:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test-2"
+  test3:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test-3"
 
-      - name: Run test (example)
-        run: docker run --rm myapp:ci echo "tests passed"
