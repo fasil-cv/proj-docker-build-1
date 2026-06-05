@@ -21,8 +21,8 @@ jobs:
           
       - name: build and tag
         run: |
-          docker build -t fasilcv/myapp:${VERSION} .
-          docker tag fasilcv/myapp:${VERSION} myapp:latest
+          docker build -t fasilcv/myapp:"${VERSION}" .
+          docker tag fasilcv/myapp:"${VERSION}" myapp:latest
   # Test the image
   test:
     needs: build
