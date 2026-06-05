@@ -20,6 +20,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Run tests"
+  test2:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "test-2"
   # Push image
   push:
     needs: test
