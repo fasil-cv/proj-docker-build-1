@@ -28,6 +28,7 @@ jobs:
   # Push image
   push:
     needs: test
+    needs: test2
     runs-on: ubuntu-latest
     steps:
       - run: echo "Push image to docker registry"
