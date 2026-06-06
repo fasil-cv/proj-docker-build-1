@@ -28,7 +28,7 @@ jobs:
     steps:
       - run: echo "test-2"
   test3:
-    needs: build
+    needs: test2
     runs-on: ubuntu-latest
     steps:
       - run: echo "test-3"
