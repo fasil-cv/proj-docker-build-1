@@ -5,9 +5,8 @@ on:
     - cron: '*/5 * * * *' 
 
 jobs:
-  build:
+  testjob:
     runs-on: ubuntu-latest  
     steps:
-      - uses: actions/checkout@v4
       - name: Test job
         run: echo "test"
