@@ -1,4 +1,4 @@
-name: test schedule
+name: Test Job
 
 on:
   schedule:
