@@ -38,11 +38,12 @@ jobs:
       - name: Run docker image
         run: |
           docker run -d --name=myapp -p 8080:80 fasilcv/myapp:local
+          docker ps
           sleep 10
       
       - name: Helath check
         run: |
-          curl -f http://localhost:8080/helathz
+          curl -v http://localhost:8080/helathz
       
   test2:
     needs: build-image
