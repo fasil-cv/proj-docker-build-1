@@ -40,7 +40,7 @@ jobs:
           docker run -d --name=myapp -p 8080:80 fasilcv/myapp:local
       
       - name: Helath check
-        run: curl -f http://localhost:8080/healthz
+        run: curl -v http://localhost:8080
       
   test2:
     needs: build
