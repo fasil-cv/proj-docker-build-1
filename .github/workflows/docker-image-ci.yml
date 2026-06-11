@@ -25,7 +25,7 @@ jobs:
           path: myapp.tar
   
   # Test jobs
-  test-docker-run:
+  test-run:
     needs: build-image
     runs-on: ubuntu-latest
     steps:
@@ -51,7 +51,7 @@ jobs:
     steps:
       - run: echo "test-2"
   test3:
-    needs: test-docker-run
+    needs: test-run
     runs-on: ubuntu-latest
     steps:
       - run: echo "test-3"
