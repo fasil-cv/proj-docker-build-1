@@ -9,7 +9,7 @@ on:
 jobs:
 
   # Build the image
-  Build-Image:
+  build-image:
     runs-on: ubuntu-latest  
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
   
   # Test jobs
   Test-Image:
-    needs: Build-Image
+    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - uses: actions/download-artifact@v4
@@ -46,7 +46,7 @@ jobs:
   
   # Security scan image    
   scan-image:
-    needs: Build-Image
+    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - run: echo "security vulnerable scan"
