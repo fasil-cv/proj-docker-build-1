@@ -25,7 +25,7 @@ jobs:
           path: myapp.tar
   
   # Test jobs
-  Test-Image:
+  test-image:
     needs: build-image
     runs-on: ubuntu-latest
     steps:
