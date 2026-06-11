@@ -23,12 +23,18 @@ jobs:
         with:
           name: docker-image
           path: myapp.tar
-  # Test the image
+  
+  # Test jobs
   test1-docker-run:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/upload-artifact@v7
+        with:
+          name: docker-image
+      - run: docker load -i myapp.tar
       - run: echo "Run tests"
+      
   test2:
     needs: build
     runs-on: ubuntu-latest
