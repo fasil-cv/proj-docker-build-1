@@ -49,10 +49,17 @@ jobs:
     needs: build-image
     runs-on: ubuntu-latest
     steps:
+    
+      - uses: actions/download-artifact@v4
+        with:
+          name: docker-image
+      - name: Load docker image
+        run: docker load -i myapp.tar
+        
       - name: Run Trivy scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'myapp:test'
+          image-ref: 'fasilcv/myapp:local'
           format: 'table'
           exit-code: '1'
           severity: 'CRITICAL,HIGH'
