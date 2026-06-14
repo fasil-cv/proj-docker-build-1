@@ -49,8 +49,14 @@ jobs:
     needs: build-image
     runs-on: ubuntu-latest
     steps:
-      - run: echo "security vulnerable scan"
-      
+      - name: Run Trivy scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: 'myapp:test'
+          format: 'table'
+          exit-code: '1'
+          severity: 'CRITICAL,HIGH'
+
   test3:
     needs: test-image
     runs-on: ubuntu-latest
