@@ -62,7 +62,7 @@ jobs:
           image-ref: 'fasilcv/myapp:local'
           format: 'table'
           exit-code: '1'
-          severity: 'UNKNOWN'
+          severity: 'CRITICAL'
 
   test3:
     needs: test-image
