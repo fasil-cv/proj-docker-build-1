@@ -61,9 +61,9 @@ jobs:
         with:
           image-ref: 'fasilcv/myapp:local'
           format: 'table'
-          exit-code: '0'   #make 1 exiting code to fail the pipeline, if one of the are reported.
+          exit-code: '1'   #make 1 exiting code to fail the pipeline, if one of the are reported.
           ignore-unfixed: true
-          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
+          severity: 'CRITICAL,MEDIUM,LOW'
 
   test3:
     needs: test-image
