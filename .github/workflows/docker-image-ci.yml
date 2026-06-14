@@ -63,7 +63,7 @@ jobs:
           format: 'table'
           exit-code: '1'   #make 1 exiting code to fail the pipeline, if one of the are reported.
           ignore-unfixed: true
-          severity: 'CRITICAL,MEDIUM,LOW'
+          severity: 'CRITICAL,HIGH,MEDIUM,LOW'
 
   test3:
     needs: test-image
