@@ -66,7 +66,7 @@ jobs:
           severity: 'CRITICAL,HIGH,MEDIUM,LOW'
 
   test3:
-    needs: test-image
+    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - run: echo "test-3"
